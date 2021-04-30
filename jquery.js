@@ -1,6 +1,6 @@
-import $ from "jquery";
-import Flash from "./flash";
+import jQuery from "jquery";
 
+export const $ = jQuery;
 export const SPINNER_WRAPPER_CLASS = `spinner-border-container`;
 export const LOADING_CLASS = `loading`;
 

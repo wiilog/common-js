@@ -8,5 +8,9 @@
     "packages": [
       "packages/*"
     ]
-  }
+  },
+  "devDependencies": {
+    "jquery": "^3.5.1"
+  },
+  "private": true
 }
