@@ -10,7 +10,8 @@
     ]
   },
   "devDependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "arrive": "^2.4.1"
   },
   "private": true
 }
