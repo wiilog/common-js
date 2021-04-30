@@ -1,0 +1,12 @@
+{
+  "name": "common-js",
+  "version": "1.0.0",
+  "main": "select2.js",
+  "repository": "git@github.com:wiilog/common-js.git",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
