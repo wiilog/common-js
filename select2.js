@@ -1,4 +1,5 @@
 import {GROUP_WHEN_NEEDED} from './jquery';
+import 'arrive';
 import 'select2';
 import 'select2/src/js/select2/i18n/fr';
 
