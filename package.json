@@ -1,7 +1,7 @@
 {
   "name": "common-js",
   "version": "1.0.0",
-  "main": "select2.js",
+  "main": "src/main.js",
   "repository": "git@github.com:wiilog/common-js.git",
   "license": "MIT",
   "workspaces": {
@@ -9,7 +9,7 @@
       "packages/*"
     ]
   },
-  "devDependencies": {
+  "dependencies": {
     "jquery": "^3.5.1",
     "arrive": "^2.4.1"
   },

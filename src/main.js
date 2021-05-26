@@ -1,12 +1,12 @@
-import {GROUP_WHEN_NEEDED} from './jquery';
+import {$, GROUP_WHEN_NEEDED} from './jquery';
 import 'arrive';
 import 'select2';
 import 'select2/src/js/select2/i18n/fr';
 
 let ROUTES;
-let INSTANT_SELECTED_TYPES;
+let INSTANT_SELECT;
 
-export default class Select2 {
+export class Select2 {
     static init($element) {
         const type = $element.data(`s2`);
         if(!$element.find(`option[selected]`).exists() && !type &&
@@ -31,7 +31,7 @@ export default class Select2 {
             };
         }
 
-        if(type && !INSTANT_SELECT_TYPES[type]) {
+        if(type && !INSTANT_SELECT[type]) {
             config.minimumInputLength = 1;
         }
 
@@ -51,20 +51,20 @@ export default class Select2 {
             ...config,
         });
 
-        $element.on('select2:open', function(e) {
-            const evt = "scroll.select2";
+        $element.on(`select2:open`, function(e) {
+            const evt = `scroll.select2`;
             $(e.target).parents().off(evt);
             $(window).off(evt);
             // we hide all other select2 dropdown
             $('[data-s2-initialized]').each(function() {
                 const $select2 = $(this);
                 if(!$select2.is($element)) {
-                    $select2.select2('close');
+                    $select2.select2(`close`);
                 }
             });
 
             const $select2Parent = $element.parent();
-            const $searchField = $select2Parent.find('.select2-search--dropdown .select2-search__field');
+            const $searchField = $select2Parent.find(`.select2-search--dropdown .select2-search__field`);
             if($searchField.exists()) {
                 setTimeout(() => $searchField[0].focus(), 300);
             }
@@ -94,9 +94,9 @@ export default class Select2 {
 
 }
 
-export function initializeRoutesAndSelectType(r, t){
+export function initializeSelect2(r, t){
     ROUTES = r;
-    INSTANT_SELECTED_TYPES = t;
+    INSTANT_SELECT = t;
 
     $(document).ready(() => $(`[data-s2]`).each((id, elem) => Select2.init($(elem))));
     $(document).arrive(`[data-s2]`, function() {
